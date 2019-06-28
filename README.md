@@ -68,4 +68,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ###  `Add file database`
-mongoimport --username root --password password --db manganew --file data.json --jsonArray --authenticationDatabase admin
+docker-compose exec mongo mongoimport --username root --password password --db mangadatabase --collection mangas --file data.json --jsonArray --authenticationDatabase admin
