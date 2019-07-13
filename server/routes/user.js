@@ -1,19 +1,20 @@
 const express = require('express');
-const Manga = require('../models/manga');
+const User = require('../models/user');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    Manga.find().then(data => res.json(data));
-});
+    User.find().then(data => res.json(data));
+})
 
-router.get('/:id', (req, res) => {
-    console.log('MANGA BY ID : ',req.params.id);
-    Manga.findOne({ imdbID: req.params.id}).then(data => res.json(data));
-});
+router.get('/info', (req, res) => {
+    console.log('info user');
+    User.findOne({ email : req.body.email }).then(data => res.json(data));
+})
+
 
 router.post('/', (req, res) => {
-    const manga = new Manga(req.body);
-    manga.save()
+    const user = new User(req.body);
+    user.save()
     .then(data => res.status(201).json(data))
     .catch(
         error => {
@@ -24,6 +25,7 @@ router.post('/', (req, res) => {
             }
         }
     )
-});
+})
+
 
 module.exports = router;
