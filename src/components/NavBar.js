@@ -7,6 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import StarIcon from '@material-ui/icons/Star';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
@@ -120,10 +121,18 @@ export default function PrimarySearchAppBar() {
     return [
       <>
         <Link to="/profile">
-          <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+          <MenuItem onClick={handleMenuClose}>
+          <Button variant="contained" color="primary" className={classes.button}>
+          Profile
+      </Button>
+          </MenuItem>
         </Link>
         <Link to="/logout" >
-          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          <MenuItem onClick={handleLogout}>
+          <Button variant="contained" color="secondary" className={classes.button}>
+          Logout
+      </Button>
+          </MenuItem>
         </Link>
       </>
     ]
@@ -133,10 +142,18 @@ export default function PrimarySearchAppBar() {
     return [
       <>
         <Link to="/login" >
-          <MenuItem onClick={handleMenuClose}>Sign In</MenuItem>
+          <MenuItem onClick={handleMenuClose}>
+          <Button variant="contained" color="primary" className={classes.button}>
+        Sign in
+      </Button>
+          </MenuItem>
         </Link>
-        <Link to="/register" >
-          <MenuItem onClick={handleMenuClose}>Register</MenuItem>
+        <Link to="/register" >        
+          <MenuItem onClick={handleMenuClose}>         
+          <Button variant="contained" color="primary" className={classes.button}>
+          Register
+      </Button>
+        </MenuItem>
         </Link>
       </>
     ]
@@ -170,22 +187,8 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton aria-label="Show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="Show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
+     
+      
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="Account of current user"
@@ -230,16 +233,7 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="Show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="Show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+       
             <IconButton
               edge="end"
               aria-label="Account of current user"

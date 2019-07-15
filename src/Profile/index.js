@@ -5,30 +5,20 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' team.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
+    minHeight: 'auto',
   },
   main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
+    marginTop: 50,
+    marginBottom: 'auto',
   },
   footer: {
-    padding: theme.spacing(2),
+    padding: 'auto',
     marginTop: 'auto',
     backgroundColor: 'white',
   },
@@ -40,7 +30,7 @@ export default function Profile(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Container component="main" className={classes.main} maxWidth="sm">
+      <Container component="main" className={classes.main} >
         <Typography variant="h2" component="h1" gutterBottom>
           PROFILE
         </Typography>

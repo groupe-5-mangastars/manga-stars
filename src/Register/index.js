@@ -17,17 +17,7 @@ import useForm from '../hooks/useForm';
 import validate from '../rules/RegisterFormValidationRules';
 import { AuthContext } from '../Auth/AuthProvider';
 
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' team.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -168,7 +158,7 @@ export default function SignUp(props) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
@@ -176,7 +166,6 @@ export default function SignUp(props) {
         </form>
       </div>
       <Box mt={5}>
-        <MadeWithLove />
       </Box>
     </Container>
   );

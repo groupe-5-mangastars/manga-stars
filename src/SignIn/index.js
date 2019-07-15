@@ -19,17 +19,6 @@ import validate from '../rules/LoginFormValidationRules';
 import { AuthContext } from '../Auth/AuthProvider';
 
 
-function MadeWithLove() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Built with love by the '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Material-UI
-      </Link>
-            {' team.'}
-        </Typography>
-    );
-}
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -126,12 +115,10 @@ export default function SignIn(props) {
           </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-              </Link>
+                       
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
+                            <Link href="/register" variant="body2">
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>
@@ -139,7 +126,6 @@ export default function SignIn(props) {
                 </form>
             </div>
             <Box mt={5}>
-                <MadeWithLove />
             </Box>
         </Container>
     );
