@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-const useFetchMovies = (link) => {
+const useFetchMangas = (link) => {
     const [data, setData] = useState({ hits: [] });
     // const [url, setUrl] = useState(
-    //     'http://localhost:3000/movies',
+    //     'http://localhost:3000/mangas',
     // );
     const [url, setUrl] = useState(link);
     const [isLoading, setIsLoading] = useState(false);
@@ -39,4 +39,4 @@ const useFetchMovies = (link) => {
     return [{ data, isLoading, isError }, setUrl];
 };
 
-export default useFetchMovies;
+export default useFetchMangas;
