@@ -2,28 +2,39 @@ const express = require('express');
 const Manga = require('../models/manga');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    Manga.find().then(data => res.json(data));
+router.get('/',(req,res) => {
+    var pageNo = parseInt(req.query.pageNo)
+    var size = parseInt(req.query.size)
+    var query = {}
+    if(pageNo < 0 || pageNo === 0) {
+        response = {"error" : true,"message" : "invalid page number, should start with 1"};
+        return res.json(response)
+    }
+    query.skip = size * (pageNo - 1)
+    query.limit = size
+    // Find some documents
+    Manga.find({},{},query,function(err,data) {
+        // Mongo command to fetch all data from collection.
+        if(err) {
+            response = {"error" : true,"message" : "Error fetching data"};
+        } else {
+            response = data;
+        }
+        res.json(response);
+    });
 });
-
-router.get('/:id', (req, res) => {
-    console.log('MANGA BY ID : ',req.params.id);
-    Manga.findOne({ imdbID: req.params.id}).then(data => res.json(data));
-});
-
-router.post('/', (req, res) => {
-    const manga = new Manga(req.body);
-    manga.save()
-    .then(data => res.status(201).json(data))
-    .catch(
-        error => {
-            if(error.name === "ValidationError") {
-                res.status(400).json(error.errors);
+router.get("/:id", (req, res) => {
+    Manga.findOne({ _id: req.params.id })
+        .then(data => res.json(data))
+        .catch(error => {
+            console.log(error);
+            if (error.name == "CastError") {
+                res.status(422).json({ message: "Invalid id" });
             } else {
                 res.sendStatus(500);
             }
-        }
-    )
+        });
 });
+
 
 module.exports = router;
