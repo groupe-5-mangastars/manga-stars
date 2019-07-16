@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+import React, { Component } from 'react';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import MangaListContainer from './components/Manga/MangaListContainer';
 import logo from './logo.png';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from './Auth/AuthProvider';
@@ -16,7 +17,7 @@ class App extends Component {
       <BrowserRouter>
         <NavBar />
         <Router />
-
+        <MangaListContainer/>
         <Footer />
         </BrowserRouter>
         </AuthProvider>
