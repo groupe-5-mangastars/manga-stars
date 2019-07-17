@@ -4,11 +4,14 @@ import SignIn from "../SignIn";
 import Register from '../Register';
 import SuccessRegister from '../SuccessRegister';
 import Profile from '../Profile';
+import MangaListContainer from '../components/Manga/MangaListContainer';
 
 const Router = () => (
     <>
         <Route path="/login" exact component={SignIn} />
         <Route path="/profile" exact component={Profile} />
+        <Route path="/mangas" exact component={MangaListContainer} />
+
         <Route path="/logout" render={() => (
             <Redirect to="/" />
         )} />

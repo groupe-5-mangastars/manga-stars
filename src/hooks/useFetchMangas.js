@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 
 const useFetchMangas = (link) => {
     const [data, setData] = useState({ hits: [] });
-    // const [url, setUrl] = useState(
-    //     'http://localhost:3000/mangas',
-    // );
+    
     const [url, setUrl] = useState(link);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);

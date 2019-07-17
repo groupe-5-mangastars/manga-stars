@@ -14,7 +14,7 @@ class AuthProvider extends Component {
 
     componentDidMount() {
         const token = sessionStorage.getItem('token');
-        if (token) this.setState({ user: token });
+        if (token ) this.setState({ user: token  });
     }
 
     login = async (email, password) => {
@@ -27,9 +27,9 @@ class AuthProvider extends Component {
         }
 
         if (response) {
-            const token = response.token;
+            const token = response.token ;
             sessionStorage.setItem('token', `Bearer ${token}`);
-            this.setState({ user: token });
+            this.setState({ user: token});
         }
     }
 
