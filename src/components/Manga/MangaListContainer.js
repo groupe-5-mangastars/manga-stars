@@ -28,6 +28,7 @@ class MangaListContainer extends Component {
 
     render() {
         return (
+            
             <MangaList mangas={this.state.mangas} />
         );
     }
