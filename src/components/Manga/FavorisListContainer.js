@@ -1,38 +1,29 @@
-import React, { Component } from 'react';
-import MangaList from './MangaList';
+import React from "react";
+import MangaItem from "./MangaItem";
+import StarsIcon from '@material-ui/icons/Stars';
 
-class MangaListContainer extends Component {
-    state = {
-        mangas: []
-    }
 
-    componentDidMount(){
-    fetch('http://localhost:3000/mangas?pageNo=1&size=10', {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                throw new Error('Fail to fetch');
-            }
-        })
-        .then(data => {
-            this.setState({mangas: data});
-        })
-        .catch();
-    }
+const divStyle = {
+    marginTop: 35, 
+    fontSize: '1.2em', 
+    textAlign: 'center'
+  };
+  const iconStyle = {
+    color: 'gold',
+    weight: 400
 
-    render() {
-        return (
+  }
+
+    const
+    FavorisList = ({mangas}) =>
+        <>
+       <div style={divStyle}>
+            <p>Welcome to the favorites page.</p>
+            <StarsIcon style={iconStyle} />
+
+            <p>Here, let me load your mangas for you...</p>
+            </div>
             
-            
-            <MangaList mangas={this.state.mangas} />
-        );
-    }
-}
+        </>
 
-export default MangaListContainer;
+export default FavorisList;

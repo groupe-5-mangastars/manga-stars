@@ -11,7 +11,7 @@ const divStyle = {
     MangaList = ({mangas}) =>
         <>
        <div style={divStyle}>
-            <p>Welcome to the discover page.</p>
+            <p>Welcome to the mangas page.</p>
             <p>Here, let me load a few mangas for you...</p>
             </div>
             <ul>
