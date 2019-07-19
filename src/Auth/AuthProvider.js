@@ -28,6 +28,7 @@ class AuthProvider extends Component {
 
         if (response) {
             const token = response.token;
+            console.log(response);
             sessionStorage.setItem('token', `Bearer ${token}`);
             this.setState({ user: token });
         }

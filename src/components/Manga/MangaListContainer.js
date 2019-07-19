@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component, createContext} from 'react';
 import MangaList from './MangaList';
+
+export const AuthContext = createContext({});
 
 class MangaListContainer extends Component {
     state = {
@@ -24,6 +26,14 @@ class MangaListContainer extends Component {
             this.setState({mangas: data});
         })
         .catch();
+
+
+    }
+
+
+
+    addFavorite = () => {
+
     }
 
     render() {

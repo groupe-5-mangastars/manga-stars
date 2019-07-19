@@ -3,6 +3,7 @@ const User = require('./models/user');
 
 const express = require('express');
 const mangaRouter = require('./routes/manga');
+const favoriteRouter = require('./routes/favorite');
 const userRouter = require('./routes/user');
 const securityRouter = require('./routes/security');
 //const verifyToken = require('./middlewares/security');
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use('/', securityRouter);
 //app.use(verifyToken);
+app.use('/favorite', favoriteRouter)
 app.use('/mangas', mangaRouter);
 app.use('/users', userRouter);
 
