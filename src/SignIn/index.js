@@ -100,10 +100,7 @@ export default function SignIn(props) {
                         value={values.password || ''}
                         error={errors.password ? true : false}
                     />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
+                    
                     <Button
                         type="submit"
                         fullWidth
