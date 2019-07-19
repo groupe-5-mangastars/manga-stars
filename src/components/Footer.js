@@ -13,7 +13,7 @@ import BookIcon from '@material-ui/icons/Book';
 
 const useStyles = makeStyles({
   root: {
-    paddingTop : 800,
+    paddingTop : 600,
     width: 'auto',
     height : 'auto'
   },

@@ -138,14 +138,7 @@ export default function SignUp(props) {
                 error={errors.password ? true : false}
               />
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-                onChange={handleChangeCheckbox}
-                name="newsletterAccepted"
-              />
-            </Grid>
+            
           </Grid>
           <Button
             type="submit"

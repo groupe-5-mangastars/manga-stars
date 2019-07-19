@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import MangaList from './MangaList';
 
+
+
 class MangaListContainer extends Component {
     state = {
         mangas: []
     }
+    
 
     componentDidMount(){
-    fetch('http://localhost:3000/mangas?pageNo=1&size=20', {
+    fetch('http://localhost:3000/mangas?pageNo=1&size=10', {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -25,9 +28,10 @@ class MangaListContainer extends Component {
         })
         .catch();
     }
-
+    
     render() {
         return (
+            
             <MangaList mangas={this.state.mangas} />
         );
     }
