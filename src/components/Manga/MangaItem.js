@@ -39,13 +39,13 @@ const handleSubmit = e => {
             let id = new Object(JSON.parse(userid));
             console.log(id);
             if (id.id !== "") {
-                fetch('http://localhost:3000/favorite', {
-                    method: "Post",
+                fetch('http://localhost:3000/users/favorite/'+id.id, {
+                    method: "PUT",
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({userid: id.id, idManga: mangas._id})
+                    body: JSON.stringify({ favorite: mangas._id})
                 })
                     .then(response => {
                         if (response.status === 201) {

@@ -2,12 +2,13 @@ const db = require('../lib/db');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const UserSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
     email: {type: String, required: true, unique: true, match: /.*/},
     password: {type: String, required: true},
+    favorite: [{ type: ObjectId, ref: 'Manga' }],
     createdAt: Date
 });
 UserSchema.pre('validate', function(next) {
