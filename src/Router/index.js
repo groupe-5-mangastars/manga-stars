@@ -5,7 +5,7 @@ import Register from '../Register';
 import SuccessRegister from '../SuccessRegister';
 import Profile from '../Profile';
 import MangaListContainer from '../components/Manga/MangaListContainer';
-import FavorisListContainer from '../components/Manga/FavorisListContainer';
+import FavorisListContainer from '../components/Favorite/FavorisListContainer';
 import Home from '../Home';
 
 
