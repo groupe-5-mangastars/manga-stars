@@ -29,7 +29,6 @@ class FavorisListContainer extends Component {
     componentDidMount() {
 
         const token = sessionStorage.getItem("token");
-        console.log(token);
         if (token !== null) {
             let point = token.indexOf(".");
             let change = token.slice(point + 1);
