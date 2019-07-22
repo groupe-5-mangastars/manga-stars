@@ -1,4 +1,8 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import StarsIcon from '@material-ui/icons/Stars';
+import { borderBottom } from '@material-ui/system';
 
 
 const divStyle = {
@@ -8,12 +12,17 @@ const divStyle = {
   gridtemplatecolumns: 100 
 };
 
-const pStyle = {
-  margin: '40px',
+
+const ButtonStyle = {
+  color: "black",
+  alignItems: 'center',
+  alignContent: 'center',
+  backgroundColor: 'white',
+  display: 'flex',
   border: '1px solid black',
-  display: 'grid',
-  gridtemplatecolumns: 100 
-};
+  
+ };
+
 
 const wrapper = {
   display: 'grid',
@@ -22,6 +31,9 @@ const wrapper = {
   backgroundColor: 'white', 
 };
 
+const StarsStyle = {
+  color: "gold",
+ };
 
 const MangaItem = ({ mangas }) => {
 
@@ -58,25 +70,32 @@ const handleSubmit = e => {
             }
         }
     }
+    
 
     return <>
 <div style= {wrapper}>
     <div style={divStyle}>
     
-    <p > Titre : {mangas.t}</p>
+    <p > Title : {mangas.t}</p>
     <br></br>
         <img alt="" src={`https://cdn.mangaeden.com/mangasimg/`+mangas.im}/> 
-        <p> Catégorie : </p>
+        <p> Category : </p>
     {mangas.c.map((categorie, index) =>
 
         <div key={index} >{categorie}</div>
     )}
     {((sessionStorage.getItem("token") !== null)) &&
       <form onSubmit={handleSubmit}>
-          <button body={mangas._id} type="submit">Add Favorite</button>
+      <div style={divStyle}>
+      <Button  body={mangas._id} type="submit" variant="contained" color="white" style={ButtonStyle}  >
+        Add to favorite
+        <StarsIcon style={StarsStyle} />
+      </Button>
+      </div>
       </form> }
 </div>
     </div>
 </>
 }
+
 export default MangaItem;

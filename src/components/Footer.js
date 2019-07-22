@@ -3,17 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter, Link } from "react-router-dom";
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
 import HomeIcon from '@material-ui/icons/Home';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import SettingsIcon from '@material-ui/icons/Settings';
 import StarsIcon from '@material-ui/icons/Stars';
 import BookIcon from '@material-ui/icons/Book';
 
 
 const useStyles = makeStyles({
   root: {
-    paddingTop : 600,
+    paddingTop : 650,
     width: 'auto',
     height : 'auto'
   },
@@ -41,7 +38,7 @@ export default function SimpleBottomNavigation() {
       <BottomNavigationAction label="Accueil"  icon={<HomeIcon />}  /> </Link>
       <Link to="/mangas">
       <BottomNavigationAction label="Mangas" icon={<BookIcon />} /></Link>
-      <Link to="/favoris">
+      <Link to="/favorite">
       <BottomNavigationAction label="Favoris"  className={classes.icon} icon={<StarsIcon />} /></Link>   
     </BottomNavigation>
   );
