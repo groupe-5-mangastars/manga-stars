@@ -14,7 +14,7 @@ const Router = () => (
         <Route path="/login" exact component={SignIn} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/mangas" exact component={MangaListContainer} />
-        <Route path="/favoris" exact component={FavorisListContainer} />
+        <Route path="/favorite" exact component={FavorisListContainer} />
         <Route path="/" exact component={Home} />
 
 

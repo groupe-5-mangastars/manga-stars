@@ -19,6 +19,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import BookIcon from '@material-ui/icons/Book';
+import StarsIcon from '@material-ui/icons/Stars';
 import { AuthContext } from '../Auth/AuthProvider';
 
 
@@ -82,7 +84,11 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+
+
 }));
+
+
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
@@ -94,6 +100,9 @@ export default function PrimarySearchAppBar() {
 
   const { user, logout } = useContext(AuthContext);
 
+  const StarsStyle = {
+   color: "gold",
+  };
 
   function handleProfileMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -125,8 +134,11 @@ export default function PrimarySearchAppBar() {
           <Button variant="contained" color="primary" className={classes.button}>
           Profile
       </Button>
-          </MenuItem>
+          </MenuItem>          
         </Link>
+
+     
+
         <Link to="/logout" >
           <MenuItem onClick={handleLogout}>
           <Button variant="contained" color="secondary" className={classes.button}>
@@ -200,6 +212,34 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
+
+      <Link to="/mangas">
+          <MenuItem onClick={handleMenuClose}>
+          <IconButton
+          aria-label="List mangas"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="secondary"
+        >
+        <BookIcon></BookIcon>
+        </IconButton>
+        <p>Mangas</p>
+      </MenuItem> 
+        </Link>
+
+        <Link to="/favorite">
+          <MenuItem onClick={handleMenuClose}>
+          <IconButton
+          aria-label="List favorites"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+        > 
+       <StarsIcon style={StarsStyle}/>
+        </IconButton>
+        <p>Favorites</p>
+      </MenuItem> 
+        </Link>
+
     </Menu>
   );
 
@@ -207,16 +247,9 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+         
 
-          <StarIcon className={classes.icon} />
+          <StarsIcon className={classes.icon} />
 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -233,7 +266,31 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-       
+
+          
+         
+                {/* <Link to= "/mangas" color="inherit"> */}
+                <Button variant="contained" color="default"   component={Link} to="/mangas" className={classes.button}>
+                <BookIcon />
+        Mangas
+      </Button>
+      {/* </Link> */}
+
+<div> 
+  
+</div>
+
+                <Button variant="contained" component={Link} to="/favorite" color="default" className={classes.button}>
+                <StarsIcon />
+        Favorites
+      </Button>
+
+      
+      
+                
+            
+
+
             <IconButton
               edge="end"
               aria-label="Account of current user"
@@ -244,8 +301,11 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
+
+            
           </div>
           <div className={classes.sectionMobile}>
+
             <IconButton
               aria-label="Show more"
               aria-controls={mobileMenuId}
@@ -255,9 +315,13 @@ export default function PrimarySearchAppBar() {
             >
               <MoreIcon />
             </IconButton>
+
+          
           </div>
         </Toolbar>
+        
       </AppBar>
+      
       {renderMobileMenu}
       {renderMenu}
     </div>
