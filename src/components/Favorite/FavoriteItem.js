@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import Button from '@material-ui/core/Button';
 
 
 class FavoriteItem extends Component {
@@ -9,21 +11,9 @@ class FavoriteItem extends Component {
         manga: {}
     }
 
-    const
-    divStyle = {
-        margin: '40px',
-        border: '1px solid black',
-        display: 'grid',
-        gridtemplatecolumns: 100
-    };
+   
 
-    const
-    pStyle = {
-        margin: '40px',
-        border: '1px solid black',
-        display: 'grid',
-        gridtemplatecolumns: 100
-    };
+   
 
     const
     wrapper = {
@@ -88,23 +78,70 @@ class FavoriteItem extends Component {
     }
 
         render() {
+
+            const
+            divStyle = {
+                margin: '40px',
+                border: '1px solid black',
+                display: 'flex',
+                gridtemplatecolumns: 100
+            };
+
+            const ButtonStyle = {
+                color: "black",
+                alignItems: 'center',
+                alignContent: 'center',
+                backgroundColor: 'white',
+                display: 'flex',
+                border: '1px solid black',
+                
+               };
+
+               const DeleteStyle = {
+                color: "red",
+
+               };
+               const
+               divButton= {
+                   
+                   paddingLeft: 700,
+                   paddingBottom: 30,
+
+               };
+
             return(
+                
                 <>
-                    <div >
+                <div style={divStyle}>
+ 
                         <div >
 
-                            <p> Titre : {this.state.manga.t}</p>
+                            <p> Title : {this.state.manga.t}</p>
                             <br></br>
                             <img alt="" src={`https://cdn.mangaeden.com/mangasimg/` + this.state.manga.im}/>
-                            <p> Catégorie : </p>
+                            <p > Category : </p>
 
 
                                 <div >{this.state.manga.c}</div>
 
+
+                  
+
                             {((sessionStorage.getItem("token") !== null)) &&
                             <form onSubmit={this.handleSubmit}>
-                                <button body={this.state.manga._id} type="submit">delete Favorite</button>
-                            </form>}
+                                                        <div style={divButton}>
+
+                            <Button body={this.state.manga._id} type="submit" variant="contained" color="white" style={ButtonStyle} >delete Favorite
+                            <DeleteRoundedIcon style={DeleteStyle} />
+
+                            </Button>
+                            </div>
+                            </form>
+                            }
+
+                            
+
+      
                         </div>
                     </div>
 
