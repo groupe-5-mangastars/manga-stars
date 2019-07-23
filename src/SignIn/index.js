@@ -62,7 +62,7 @@ export default function SignIn(props) {
 
     return (
         <Container component="main" maxWidth="xs">
-            {user ? props.history.push('/profile') : ''}
+            {user ? props.history.push('/mangas') : ''}
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
