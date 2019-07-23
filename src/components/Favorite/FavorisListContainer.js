@@ -12,21 +12,18 @@ class FavorisListContainer extends Component {
             id: String
         };
     }
-
-
-    
     const
     iconStyle = {
         color: 'gold',
         weight: 400
 
     }
-
     searchManga(id){
         fetch('http://localhost:3000/users/favorite/' + id, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": sessionStorage.getItem("token")
             }
         })
             .then(response => {
@@ -45,7 +42,6 @@ class FavorisListContainer extends Component {
     }
 
     componentDidMount() {
-
         const token = sessionStorage.getItem("token");
         if (token !== null) {
             let point = token.indexOf(".");
@@ -57,16 +53,15 @@ class FavorisListContainer extends Component {
             this.setState({id: id.id})
             this.searchManga(id.id);
 
-
-
         }
     }
-    componentDidUpdate() {
-        this.searchManga(this.state.id);
-    }
+   /* componentDidUpdate(prevProps, prevState) {
+        if (prevState.favorites !== this.state.favorites) {
+            this.searchManga();
+        }
+    }*/
 
     render() {
-    
        
         return(
             <>

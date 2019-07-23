@@ -17,9 +17,10 @@ app.use(cors());
 app.use(bodyparser.json());
 
 app.use('/', securityRouter);
+app.use(verifyToken);
 app.use('/mangas', mangaRouter);
 app.use('/users', userRouter);
-app.use(verifyToken);
+
 
 
 app.listen(3000, () => {
