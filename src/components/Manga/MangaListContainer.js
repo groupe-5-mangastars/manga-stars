@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MangaList from './MangaList';
 import ReactPaginate from 'react-paginate';
+import './mangaList.css';
 
 
 
@@ -54,11 +55,18 @@ class MangaListContainer extends Component {
 
 
     render() {
+
+        const ReactStyle= {
+            
+            "display": "flex",
+            "justifyContent": "center",
+            "alignItems": "center",          
+    }
         return (
             <>
-            <MangaList mangas={this.state.mangas} max={this.state.maxInPage}/>
-            <div className="react-paginate">
-            <ReactPaginate
+           <MangaList mangas={this.state.mangas} max={this.state.maxInPage}/>
+            <div className="react-paginate" style={ReactStyle}>
+            <ReactPaginate  style={{ listStyle: 'none' }}
                 previousLabel={'<'}
                 nextLabel={'>'}
                 breakLabel={'...'}
