@@ -8,14 +8,13 @@ const divStyle = {
   };
 
     const
-    MangaList = ({mangas, max}) =>
+    MangaList = ({mangas}) =>
         <>
        <div style={divStyle}>
             <p>Welcome to the mangas page.</p>
             <p>Here, let me load a few mangas for you...</p>
             </div>
             <ul>
-                {console.log(max)}
                 {mangas.map((manga, index) =>
                     <MangaItem key={index} mangas={manga}></MangaItem>
                 )}

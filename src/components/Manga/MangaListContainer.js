@@ -7,8 +7,7 @@ import ReactPaginate from 'react-paginate';
 class MangaListContainer extends Component {
     state = {
         mangas: [],
-        page:1,
-        offset: 0
+        page:1
     }
 
 
