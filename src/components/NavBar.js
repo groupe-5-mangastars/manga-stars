@@ -129,23 +129,21 @@ export default function PrimarySearchAppBar() {
   const loggedMenu = () => {
     return [
       <>
-        <Link to="/profile">
+        
           <MenuItem onClick={handleMenuClose}>
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" color="primary"  component={Link} to="/profile"  className={classes.button}>
           Profile
       </Button>
           </MenuItem>          
-        </Link>
+        
 
      
 
-        <Link to="/logout" >
           <MenuItem onClick={handleLogout}>
-          <Button variant="contained" color="secondary" className={classes.button}>
+          <Button variant="contained" color="secondary"  component={Link} to="/logout" className={classes.button}>
           Logout
       </Button>
           </MenuItem>
-        </Link>
       </>
     ]
   };
@@ -153,20 +151,16 @@ export default function PrimarySearchAppBar() {
   const unloggedMenu = () => {
     return [
       <>
-        <Link to="/login" >
           <MenuItem onClick={handleMenuClose}>
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" color="primary" component={Link} to="/login"  className={classes.button}>
         Sign in
       </Button>
           </MenuItem>
-        </Link>
-        <Link to="/register" >        
           <MenuItem onClick={handleMenuClose}>         
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" color="primary" component={Link} to="/register"  className={classes.button}>
           Register
       </Button>
         </MenuItem>
-        </Link>
       </>
     ]
   }
