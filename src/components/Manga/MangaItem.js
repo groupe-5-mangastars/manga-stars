@@ -54,7 +54,8 @@ const handleSubmit = e => {
                     method: "PUT",
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        "Authorization": sessionStorage.getItem("token")
                     },
                     body: JSON.stringify({ favorite: mangas._id})
                 })

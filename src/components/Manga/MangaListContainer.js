@@ -16,6 +16,7 @@ class MangaListContainer extends Component {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": sessionStorage.getItem("token")
             }
         })
             .then(response => {
@@ -26,15 +27,9 @@ class MangaListContainer extends Component {
                 }
             })
             .then(data => {
-                let count = 0;
-                for(var prop in data) {
-                    if(data.hasOwnProperty(prop))
-                        ++count;
-                }
                 this.setState({
                     mangas: data
                 });
-                console.log(count)
             })
             .catch();
     }
@@ -42,8 +37,10 @@ class MangaListContainer extends Component {
         this.searchManga();
     }
 
-    componentDidUpdate() {
-        this.searchManga();
+    componentDidUpdate(prevProps, prevState) {
+     if (prevState.page !== this.state.page) {
+         this.searchManga();
+     }
     }
 
     handlePageClick = (e) => {

@@ -8,6 +8,8 @@ mongoose.connect('mongodb://mongo',{
     useNewUrlParser: true
 });
 
-const db = mongoose.connection;
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 module.exports = mongoose.connection;

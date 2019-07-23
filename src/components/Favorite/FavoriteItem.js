@@ -29,6 +29,7 @@ class FavoriteItem extends Component {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": sessionStorage.getItem("token")
             }
         })
             .then(response => {
@@ -60,7 +61,8 @@ class FavoriteItem extends Component {
                     method: "PUT",
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Accept': 'application/json',
+                        "Authorization": sessionStorage.getItem("token")
                     },
                     body: JSON.stringify({ favorite: this.state.manga._id})
                 })
