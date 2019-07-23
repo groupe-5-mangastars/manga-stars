@@ -61,7 +61,6 @@ router.put('/favorite/:id', (req, res) => {
 });
 router.put('/favorite/delete/:id', (req, res) => {
     console.log(req.body.favorite);
-    const exist =  User.findByIdAndUpdate( req.params.id, { $get: {favorite: req.body.favorite} });
     User.findByIdAndUpdate( req.params.id, { $pull: {favorite: req.body.favorite} })
         .then(data => res.status(201).send(data))
         .catch(error => {
