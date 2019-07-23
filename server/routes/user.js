@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/info', (req, res) => {
     console.log('info user');
-    User.findOne({ email : req.body.email }).then(data => res.json(data));
+    User.findOne({ email : req.body.id }).then(data => res.json(data));
 })
 
 
