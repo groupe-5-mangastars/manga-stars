@@ -8,7 +8,7 @@ import { borderBottom } from '@material-ui/system';
 const divStyle = {
   margin: '40px',
   border: '1px solid black',
-  display: 'grid',
+  display: 'flex',
   gridtemplatecolumns: 100 
 };
 
@@ -22,14 +22,13 @@ const ButtonStyle = {
   border: '1px solid black',
   
  };
+ const divButton= {            
+  paddingLeft: 750,
+  paddingBottom: 30,
+
+  };
 
 
-const wrapper = {
-  display: 'grid',
-  gridtemplatecolumns: 100 ,
-  gridgap: 10,
-  backgroundColor: 'white', 
-};
 
 const StarsStyle = {
   color: "gold",
@@ -73,9 +72,9 @@ const handleSubmit = e => {
     
 
     return <>
-<div style= {wrapper}>
+
     <div style={divStyle}>
-    
+    <div>
     <p > Title : {mangas.t}</p>
     <br></br>
         <img alt="" src={`https://cdn.mangaeden.com/mangasimg/`+mangas.im}/> 
@@ -85,14 +84,18 @@ const handleSubmit = e => {
         <div key={index} >{categorie}</div>
     )}
     {((sessionStorage.getItem("token") !== null)) &&
+
+                                                   
       <form onSubmit={handleSubmit}>
-      <div style={divStyle}>
+           <div style={divButton}>
+      
       <Button  body={mangas._id} type="submit" variant="contained" color="white" style={ButtonStyle}  >
         Add to favorite
         <StarsIcon style={StarsStyle} />
       </Button>
       </div>
-      </form> }
+      </form>
+       }
 </div>
     </div>
 </>

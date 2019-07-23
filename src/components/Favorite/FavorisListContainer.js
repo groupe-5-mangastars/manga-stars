@@ -13,12 +13,7 @@ class FavorisListContainer extends Component {
     }
 
 
-    const
-    divStyle = {
-        marginTop: 35,
-        fontSize: '1.2em',
-        textAlign: 'center'
-    };
+    
     const
     iconStyle = {
         color: 'gold',
@@ -64,15 +59,14 @@ class FavorisListContainer extends Component {
     }
 
     render() {
+    
+       
         return(
             <>
-                <div >
-                    <p>Welcome to the favorites page.</p>
-                    <StarsIcon />
-                    <FavoriteList favorites={this.state.favorites}/>
-                    <p>Here, let me load your mangas for you...</p>
-                </div>
+                <div>
 
+                    <FavoriteList favorites={this.state.favorites}/>
+                </div>
             </>
         );
         }
