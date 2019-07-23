@@ -35,7 +35,6 @@ class FavoriteItem extends Component {
 
     componentDidMount()
     {
-
         fetch('http://localhost:3000/mangas/' + this.props.mangas, {
             method: "GET",
             headers: {
@@ -55,8 +54,9 @@ class FavoriteItem extends Component {
             .catch();
 
     }
-     handleSubmit = (e) =>  {
+     handleDelete = (e) =>  {
         e.preventDefault();
+
         const token = sessionStorage.getItem("token");
         if(token !== null) {
             let point = token.indexOf(".");
@@ -65,7 +65,6 @@ class FavoriteItem extends Component {
             change = change.slice(0, point);
             const userid = atob(change);
             let id = new Object(JSON.parse(userid));
-            console.log(id);
             if (id.id !== "") {
                 fetch('http://localhost:3000/users/favorite/delete/'+id.id, {
                     method: "PUT",
@@ -102,7 +101,7 @@ class FavoriteItem extends Component {
                                 <div >{this.state.manga.c}</div>
 
                             {((sessionStorage.getItem("token") !== null)) &&
-                            <form onSubmit={this.handleSubmit}>
+                            <form onSubmit={this.handleDelete}>
                                 <button body={this.state.manga._id} type="submit">delete Favorite</button>
                             </form>}
                         </div>
